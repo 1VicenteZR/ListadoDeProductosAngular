@@ -1,0 +1,39 @@
+<div class="login-container">
+  <form [formGroup]="loginForm" (ngSubmit)="onLogin()">
+    <mat-form-field appearance="fill" class="full-width">
+      <mat-label>Correo Electrónico</mat-label>
+      <input matInput formControlName="email" type="email" />
+      <mat-error *ngIf="loginForm.get('email')?.hasError('required')">Campo obligatorio</mat-error>
+      <mat-error *ngIf="loginForm.get('email')?.hasError('email')">Correo inválido</mat-error>
+    </mat-form-field>
+
+    <mat-form-field appearance="fill" class="full-width">
+      <mat-label>Contraseña</mat-label>
+      <input matInput [type]="hidePassword ? 'password' : 'text'" formControlName="password" />
+      <button mat-icon-button matSuffix type="button" (click)="hidePassword = !hidePassword">
+        <mat-icon>{{ hidePassword ? 'visibility_off' : 'visibility' }}</mat-icon>
+      </button>
+      <mat-error *ngIf="loginForm.get('password')?.hasError('required')">Campo obligatorio</mat-error>
+      <mat-error *ngIf="loginForm.get('password')?.hasError('pattern')">
+        Debe tener mayúscula, minúscula, número y carácter especial.
+      </mat-error>
+      <mat-error *ngIf="loginForm.get('password')?.hasError('minlength')">
+        Mínimo 8 caracteres.
+      </mat-error>
+    </mat-form-field>
+
+    <!-- Fortaleza de la contraseña -->
+    <div *ngIf="loginForm.get('password')?.value">
+      <span [style.color]="getStrengthColor()">Fortaleza: {{ getPasswordStrength() }}</span>
+    </div>
+
+    <!-- Mensaje de error en login -->
+    <div *ngIf="errorMessage" style="color: red; margin-top: 10px;">
+      {{ errorMessage }}
+    </div>
+
+    <button mat-raised-button color="primary" class="full-width" type="submit">
+      Iniciar sesión
+    </button>
+  </form>
+</div>

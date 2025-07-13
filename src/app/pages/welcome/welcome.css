@@ -1,0 +1,99 @@
+/* Fondo general con centrado exacto */
+body {
+  margin: 0;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(135deg, #e0eafc 0%, #cfdef3 100%);
+  font-family: 'Poppins', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  overflow-x: hidden;
+}
+
+/* Contenedor centrado con clase específica */
+.welcome-container {
+  text-align: center;
+  padding: 48px 36px;
+  background: rgba(255, 255, 255, 0.85);
+  border-radius: 24px;
+  box-shadow: 0 8px 32px rgba(44, 62, 80, 0.10), 0 2px 8px rgba(44, 62, 80, 0.08);
+  border: 1.5px solid #e0eafc;
+  animation: fadeInUp 1.2s ease-out;
+  transition: transform 0.3s cubic-bezier(.4,2,.3,1);
+  max-width: 480px;
+  width: 90vw;
+  margin: 24px;
+}
+
+.welcome-container:hover {
+  transform: scale(1.025);
+  box-shadow: 0 12px 40px rgba(44, 62, 80, 0.16), 0 2px 8px rgba(44, 62, 80, 0.10);
+}
+
+/* Título */
+.welcome-container h1 {
+  color: #2c3e50;
+  font-size: 2.7em;
+  font-weight: 700;
+  margin: 0 0 18px 0;
+  letter-spacing: 1px;
+  text-shadow: 0 2px 8px rgba(116, 235, 213, 0.10);
+}
+/* Subtítulo o mensaje */
+.welcome-container h2, .welcome-container p {
+  color: #4a6073;
+  font-size: 1.15em;
+  margin-top: 0;
+  margin-bottom: 18px;
+  font-weight: 400;
+}
+
+/* Botón de acción */
+.welcome-container button, .welcome-container .btn {
+  background: linear-gradient(90deg, #74ebd5 0%, #acb6e5 100%);
+  color: #fff;
+  border: none;
+  border-radius: 24px;
+  padding: 12px 36px;
+  font-size: 1.1em;
+  font-weight: 600;
+  box-shadow: 0 2px 8px rgba(44, 62, 80, 0.10);
+  cursor: pointer;
+  transition: background 0.3s, transform 0.2s, box-shadow 0.2s;
+  margin-top: 18px;
+}
+.welcome-container button:hover, .welcome-container .btn:hover {
+  background: linear-gradient(90deg, #acb6e5 0%, #74ebd5 100%);
+  transform: translateY(-2px) scale(1.04);
+  box-shadow: 0 4px 16px rgba(44, 62, 80, 0.18);
+}
+/* Responsive */
+@media (max-width: 600px) {
+  .welcome-container {
+    padding: 24px 6px;
+    border-radius: 14px;
+    max-width: 98vw;
+  }
+  .welcome-container h1 {
+    font-size: 1.5em;
+  }
+  .welcome-container h2, .welcome-container p {
+    font-size: 1em;
+  }
+  .welcome-container button, .welcome-container .btn {
+    padding: 10px 18px;
+    font-size: 1em;
+  }
+}
+
+/* Animación */
+@keyframes fadeInUp {
+  0% {
+    opacity: 0;
+    transform: translateY(50px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}

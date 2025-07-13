@@ -1,0 +1,134 @@
+:host {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background: 
+  linear-gradient(rgba(44, 62, 80, 0.60), rgba(76, 161, 175, 0.45)),
+  url('./fondo.jpg') center center/cover no-repeat fixed;
+  /* Imagen de fondo ubicada en la misma carpeta que login.css */
+  overflow-x: hidden;
+}
+
+/* Contenedor del formulario */
+.login-container {
+  width: 100%;
+  max-width: 420px;
+  padding: 48px 36px;
+  background: rgba(255, 255, 255, 0.30);
+  border-radius: 22px;
+  box-shadow: 0 16px 40px rgba(44, 62, 80, 0.18), 0 2px 8px rgba(44, 62, 80, 0.10);
+  border: 1.5px solid rgba(76, 161, 175, 0.25);
+  animation: fadeInDown 1s cubic-bezier(0.23, 1, 0.32, 1);
+  position: relative;
+  backdrop-filter: blur(16px) saturate(160%);
+  -webkit-backdrop-filter: blur(16px) saturate(160%);
+  /* Glassmorphism: blur y transparencia */
+}
+
+/* Campos de entrada */
+.full-width {
+  width: 100%;
+  margin-bottom: 28px;
+  padding: 10px 0 8px 0;
+  border: none;
+  border-bottom: 2px solid #b2bec3;
+  border-radius: 0;
+  font-size: 1.12em;
+  background: transparent;
+  color: #2c3e50;
+  transition: border-color 0.2s, box-shadow 0.2s;
+  box-sizing: border-box;
+  outline: none;
+}
+.full-width:focus {
+  border-bottom: 2.5px solid #4ca1af;
+  box-shadow: 0 2px 0 0 #4ca1af33;
+  background: transparent;
+}
+.full-width::placeholder {
+  color: #8fa6b2;
+  opacity: 1;
+  font-size: 0.98em;
+  letter-spacing: 0.5px;
+}
+
+/* Botón de enviar */
+button[type="submit"] {
+  font-weight: 600;
+  background: linear-gradient(90deg, #4ca1af 0%, #2c3e50 100%);
+  color: #fff;
+  border: none;
+  padding: 14px 0;
+  border-radius: 24px;
+  width: 100%;
+  font-size: 1.13em;
+  box-shadow: 0 2px 8px rgba(44, 62, 80, 0.10);
+  cursor: pointer;
+  transition: background 0.3s, transform 0.2s, box-shadow 0.2s;
+  margin-top: 10px;
+}
+button[type="submit"]:hover {
+  background: linear-gradient(90deg, #2c3e50 0%, #4ca1af 100%);
+  transform: translateY(-2px) scale(1.03);
+  box-shadow: 0 4px 16px rgba(44, 62, 80, 0.18);
+}
+
+/* Título y mensajes */
+.login-container h1, .login-container h2 {
+  color: #2c3e50;
+  margin-bottom: 18px;
+  font-weight: 700;
+  letter-spacing: 1px;
+  text-align: center;
+}
+.login-container p, .login-container label {
+  color: #4a6073;
+  font-size: 1.05em;
+  margin-bottom: 10px;
+}
+
+/* Enlaces de ayuda */
+.login-container a {
+  color: #4ca1af;
+  text-decoration: none;
+  font-weight: 500;
+  transition: color 0.2s;
+}
+.login-container a:hover {
+  color: #217dbb;
+  text-decoration: underline;
+}
+
+/* Animación de entrada */
+@keyframes fadeInDown {
+  0% {
+    opacity: 0;
+    transform: translateY(-40px) scale(0.98);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+/* Responsive */
+@media (max-width: 600px) {
+  .login-container {
+    padding: 24px 6px;
+    border-radius: 12px;
+    max-width: 98vw;
+  }
+  .login-container h1 {
+    font-size: 1.5em;
+  }
+  .full-width {
+    font-size: 1em;
+    padding: 10px 8px;
+  }
+  button[type="submit"] {
+    font-size: 1em;
+    padding: 12px 0;
+  }
+}

@@ -1,0 +1,97 @@
+<div class="pokemon-container">
+  <h2>Buscar Pokémon</h2>
+
+  <input
+    class="full-width"
+    type="text"
+    [(ngModel)]="pokemonName"
+    placeholder="Ejemplo: pikachu, bulbasaur"
+  />
+
+  <button class="search-button" (click)="buscarPokemon()">Buscar</button>
+
+  <div class="error" *ngIf="errorMessage">{{ errorMessage }}</div>
+
+  <!-- Card del Pokémon -->
+  <div class="pokemon-card" *ngIf="pokemonData && !isEditing">
+    <h3>{{ pokemonData.name | titlecase }}</h3>
+    <img [src]="pokemonData.image" alt="{{ pokemonData.name }}" />
+    <p><strong>Tipo:</strong> {{ pokemonData.types }}</p>
+    <p><strong>Experiencia:</strong> {{ pokemonData.experience }}</p>
+    <p><strong>Altura:</strong> {{ pokemonData.height }}</p>
+    <p><strong>Peso:</strong> {{ pokemonData.weight }}</p>
+  </div>
+
+  <!-- Edición -->
+  <div *ngIf="isEditing" class="pokemon-card edit-form">
+    <h3>Editar Pokémon</h3>
+
+    <div class="edit-grid">
+      <div class="field-group">
+        <label for="name">Nombre</label>
+        <input id="name" [(ngModel)]="pokemonData.name" placeholder="Nombre" />
+      </div>
+
+      <div class="field-group">
+        <label for="type">Tipo</label>
+        <input id="type" [(ngModel)]="pokemonData.types" placeholder="Tipo" />
+      </div>
+
+      <div class="field-group">
+        <label for="exp">Experiencia</label>
+        <input id="exp" [(ngModel)]="pokemonData.experience" placeholder="Experiencia" />
+      </div>
+
+      <div class="field-group">
+        <label for="height">Altura</label>
+        <input id="height" [(ngModel)]="pokemonData.height" placeholder="Altura" />
+      </div>
+
+      <div class="field-group">
+        <label for="weight">Peso</label>
+        <input id="weight" [(ngModel)]="pokemonData.weight" placeholder="Peso" />
+      </div>
+    </div>
+
+    <div class="edit-buttons">
+      <button class="btn-guardar" (click)="guardarEdicion()">Guardar</button>
+      <button class="btn-cancelar" (click)="cancelarEdicion()">Cancelar</button>
+    </div>
+  </div>
+
+  <!-- Tabla de Pokemones buscados -->
+  <div class="table-container" *ngIf="pokemons.length > 0">
+    <h3>Lista de Pokémon</h3>
+    <table class="pokemon-table">
+      <thead>
+        <tr>
+          <th>Imagen</th>
+          <th>Nombre</th>
+          <th>Tipo</th>
+          <th>Exp</th>
+          <th>Altura</th>
+          <th>Peso</th>
+          <th>Acciones</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let p of pokemons; let i = index">
+          <td>
+            <img [src]="p.image" [alt]="p.name" class="thumbnail" />
+          </td>
+          <td>{{ p.name | titlecase }}</td>
+          <td>{{ p.types }}</td>
+          <td>{{ p.experience }}</td>
+          <td>{{ p.height }}</td>
+          <td>{{ p.weight }}</td>
+          <td>
+            <div class="button-group">
+              <button class="small-button edit" (click)="editar(i)">Editar</button>
+              <button class="small-button delete" (click)="eliminar(i)">Eliminar</button>
+            </div>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
