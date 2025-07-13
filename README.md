@@ -134,7 +134,7 @@ Equipo 9
 📧 [vicenteregalado11@hotmail.com](mailto:vicenteregalado11@hotmail.com)  
 📸 [Instagram: @vicentevx7](https://instagram.com/vicentevx7)  
 📧 [eric.aaron.jf@gmail.com](mailto:eric.aaron.jf@gmail.com)  
-📸 [Instagram: @erico](https://instagram.com/erico)
+📸 [Instagram: @erico](https://instagram.com/_eric_juarezz)
 
 ---
 
