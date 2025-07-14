@@ -141,6 +141,7 @@ Equipo 9
 ## ⭐ Créditos
 
 - [PokeAPI](https://pokeapi.co/) por los datos abiertos de Pokémon.
+- [Usuarios](https://api.escuelajs.co/api/v1/users) por los datos de usuarios para el login
 ```
 
 ---
